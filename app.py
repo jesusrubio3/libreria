@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, abort
 import json
 app=Flask(__name__)
@@ -30,4 +31,5 @@ def categoria(categoria):
         lista=json.load(libros)
         return render_template("caracteristicas.html", lista=lista,categoria=categoria)
 
-app.run(debug=False)
+port=os.environ["PORT"]    
+app.run('0.0.0.0', int(port), debug=False)
