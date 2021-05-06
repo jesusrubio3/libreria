@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+    </head>
+
+
+    <body>
+
+        {% for i in lista -%}
+        {% if isbn==i.isbn -%}
+        <h1>{{i.title}}</h1>
+        <img src="{{i.thumbnailUrl}}">
+        <p><strong>Número de páginas:</strong> {{i.pageCount}}</p>
+        {% if i.longDescription -%}
+        <p><strong>Descripción:</strong> {{i.longDescription}}</p>
+        {% endif -%}
+        
+
+        {% if i.authors| length > 1 -%}
+        <p><strong>AUTORES</strong></p>
+        <ul>
+        {% for i in i.authors -%}
+        <li>{{i}}</li>
+        {% endfor -%}
+        </ul>
+        {% else -%}
+        {% for i in i.authors -%}
+        <p><strong>AUTOR:</strong> {{i}}</p>
+        {% endfor -%}
+        
+        {% endif -%}
+
+        {% if i.categories -%}
+        {% if i.categories| length > 1 -%}
+        <p><strong>CATEGORIAS</strong></p>
+        <ul>
+        {% for i in i.categories -%}
+        <li><a href="/categoria/{{i}}">{{i}}</a></li>
+        {% endfor -%}
+        </ul>
+        {% else -%}
+        {% for i in i.categories -%}
+        <p><strong>CATEGORIA:</strong><a href="/categoria/{{i}}">{{i}}</a></p>
+        {% endfor -%}
+        
+        {% endif -%}
+        {% endif -%}
+
+        {% if i.status=="MEAP" -%}
+        <p><strong>ESTE LIBRO NO SE HA PUBLICADO</strong></p>
+        {% endif -%}
+
+        {% endif -%}
+        {% endfor -%}
+    </body>
