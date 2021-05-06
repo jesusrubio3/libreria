@@ -7,12 +7,14 @@
 
 
     <body>
-        {{lista}}
+        <h1>BIBLIOTECA</h1>
+        <h2>Jesús Rubio Martín</h2>
         <ul>
         {% for i in lista -%}
-        <li>{{i.status}}</li>
+        <a href="/libro/{{i.isbn}}"><li>{{i.title}}</li></a>
         {% endfor -%}
         
         </ul>
     </body>
+
 </html>
