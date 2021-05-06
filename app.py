@@ -24,7 +24,7 @@ def libro(isbn):
         
     return render_template("hola.html",lista=lista,isbn=isbn)
 
-@app.route('/categorias/<categoria>')
+@app.route('/categoria/<categoria>')
 def categoria(categoria):
     with open("books.json") as libros:
         todos_isbn=[]
