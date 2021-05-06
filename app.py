@@ -30,4 +30,4 @@ def categoria(categoria):
         lista=json.load(libros)
         return render_template("caracteristicas.html", lista=lista,categoria=categoria)
 
-app.run(debug=True)
+app.run(debug=False)
